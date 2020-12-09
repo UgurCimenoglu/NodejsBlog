@@ -1,0 +1,48 @@
+<section class="page-image page-image-about md-padding">
+	<h1 class="text-white text-center">POSTS</h1>
+</section>
+
+<!--==========================
+    ABOUTUS Section
+============================-->
+<section id="aboutus" class="md-padding">
+	<div class="container">
+
+		{{>admin-nav}}
+
+		<div class="clearfix"></div>
+		<div class="mb-5"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>TITLE</th>
+							<th>CATEGORY</th>
+							<th>EDIT</th>
+							<th>DELETE</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{{#each posts}}
+						<tr>
+							<th>{{title}}</th>
+							<th>{{category.name}}</th>
+							<th><a href="/admin/posts/edit/{{id}}" class="btn btn-warning">EDIT</a></th>
+							<th>
+								<form action="/admin/posts/{{id}}?_method=DELETE" method="POST">
+									<input type="hidden" name="_method" value="DELETE">
+									<button type="submit" class="btn btn-danger">DELETE</button>
+								</form>
+							</th>
+						</tr>
+						{{/each}}
+					</tbody>
+
+				</table>
+
+			</div>
+		</div>
+	</div>
+</section>
